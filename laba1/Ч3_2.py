@@ -1,9 +1,9 @@
 import numpy as np
 import networkx as nx
 
-i = 0;
+i = 0
 
-vk = nx.read_gml('VK.gml')
+vk = nx.read_gml('/Users/ilailenko/Desktop/laba1/vk.gml')
 len_i = [0]*7
 
 print("Количество уникальных пользователей равно: ", len(vk.nodes))
@@ -31,7 +31,7 @@ for pair in sorted_friends:
 print('Медианное число друзей:  ', np.median(fv))
 print('Среднее число друзей: ', round(np.mean(fv)))
 
-smallp = nx.all_pairs_smallp_length(vk)
+smallp = nx.shortest_path_length(vk)
 
 for pair in smallp:
     for ln in pair[1].values():
