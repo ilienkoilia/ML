@@ -19,7 +19,7 @@ ylist = []
 
 
 for d in range(xmin, xmax+1):
-    list_points = np.random.randint(- a / 2, a / 2, size=(n_points, d + 1))
+    list_points = np.random.rand(n_points, d + 1) * a / 2
     ylist.append(Checking_circle(list_points, a, d, n_points)) 
 
 plt.plot(xlist, ylist)

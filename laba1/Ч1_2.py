@@ -6,6 +6,7 @@ import matplotlib.ticker as ticker
 import matplotlib.pyplot as plt
 import matplotlib.dates
 from datetime import datetime
+import pandas as pd
 
 def draw(name, valute):
 
@@ -19,8 +20,6 @@ def draw(name, valute):
 
     value=[[],[]]
     
-
-    np.savetxt(f'{name}.csv', (value[0],value[1]), delimiter=',')
     
     xlist=[]
     ylist=[]
@@ -28,6 +27,10 @@ def draw(name, valute):
     for date_ in root:
         value[0].append(date_.get('Date'))
         value[1].append(date_[1].text) 
+    
+    df = pd.DataFrame.from_dict({'Date': value[0], 'Price': value[1]})
+
+    df.to_csv(name + '.csv', index=False)
 
     for val0 in value[0]:
         date=datetime.strptime(val0, '%d.%m.%Y')

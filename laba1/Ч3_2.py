@@ -40,7 +40,7 @@ for pair in smallp:
         else:
             len_i[0]+=1
 
-overall_ln=sum(len_i)            
+overall_ln=len(vk.nodes)**2           
 
 for i in range(1,7):
     print(f'Доля пар с L={i} {len_i[i]/overall_ln}')          
