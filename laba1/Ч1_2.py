@@ -38,15 +38,15 @@ def draw(name, valute):
 
     fig, ax = plt.subplots()
 
-    plt.title('Курс '+name+' в ' + str(date_year))
-    plt.ylabel('Цена за '+name)
+    plt.title('Курс ' + name + ' в ' + str(date_year))
+    plt.ylabel('Цена за ' + name)
     plt.xlabel('Месяц')
 
     ax.xaxis.set_major_locator(matplotlib.dates.DayLocator(1))
     ax.xaxis.set_major_formatter(matplotlib.dates.DateFormatter('%m'))
 
     ax.plot(xlist, ylist)
-
+    plt.savefig(name + "plot.svg", format="svg")
     plt.show()
     
 

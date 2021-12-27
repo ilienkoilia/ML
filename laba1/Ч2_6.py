@@ -9,28 +9,13 @@ def Calculate_the_angle(a,b):
     return nook
 
 
-    
-vec = []
 A = 1000
 d = 6
-for i in range(A):
-    list = []
-    for j in range(d):
-        list.append( random.randint(-20, 20) )
-    vec.append( np.array(list) )
+vec = np.random.randint(-20, 20, size=(A, d))
 
-list = []
-for j in range(d):
-        list.append( random.randint(-10, 10) )
-b =  np.array(list) 
+b =  np.random.randint(-20, 20, size=(d, 1))
 
-nook_90 = nook_30 = 0
-for i in range(A):
-    nook = Calculate_the_angle(vec[i],b)
-    if nook < 90:
-        nook_90 += 1
-    if nook < 30:
-        nook_30 += 1
+cos_vec = vec / np.linalg.norm(vec, axis=1).reshape(-1, 1) @ b / np.linalg.norm(b)
         
-print(nook_90/A)
-print(nook_30/A)
+print(np.sum(cos_vec > 0) / A)
+print(np.sum(cos_vec > 3 ** 0.5 / 2) / A)

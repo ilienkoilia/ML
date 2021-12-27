@@ -10,19 +10,18 @@ def function(a):
 
 p=[]
 
-for ai in a:
-    temp = np.array([ai, (function(ai)-function(ai-0.01))/0.01])
-    p.append(temp)
+p = (function(a)-function(a-0.01))/0.01
 
-plt.plot(a, function(a))    
-
-plt.title("График")
+plt.plot(a, function(a), label="Функция")    
+plt.plot(a, np.cos(a), 'b', label="Аналитическая производная")
+plt.title("График и аналитическая производная")
 plt.grid(True)
+plt.legend()
+
 plt.show()
 
-for pt in p:
-        plt.plot(pt[0], pt[1], 'r.')
-
+plt.plot(a, p, 'r', label="Разностная производная")
 plt.title("Производная")
 plt.grid(True)
+plt.legend()
 plt.show()

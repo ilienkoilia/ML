@@ -3,20 +3,16 @@ import matplotlib.pyplot as plt
 import pylab
 
 def transformation_plot(p, array):
-    for i in range(len(p)):
-        p[i][0] =  p[i][0] * array[0][0] + p[i][1] * array[0][1]
-        p[i][1] =  p[i][0] * array[1][0] + p[i][1] * array[1][1]
-    return p
+    return p @ array
 
 
-
-array = [
+array = np.array([
     [2,4],
-    [1,5]]
-p = [
+    [1,5]])
+p = np.array([
     [2,4],
     [1,4],
-    [4,-1]]
+    [4,-1]])
 
 pylab.subplot (2, 1, 1)
 for i in range(len(p)):
