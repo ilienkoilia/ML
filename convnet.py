@@ -31,14 +31,6 @@ class IntelBlock(nn.Module):
         )
         self.relu = nn.ReLU()
 
-        self.downsample = nn.Identity()
-        if downsample:
-            self.downsample = nn.Conv2d(
-                in_channels,
-                out_сhannels,
-                kernel_size=1,
-                stride=stride
-            )
 
     def forward(self, input):
         output = self.module(input)
