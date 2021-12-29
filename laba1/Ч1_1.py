@@ -3,7 +3,7 @@ import numpy as np
 
 
 i=0
-df1 = pd.read_json("/Users/ilailenko/Desktop/Лазаревский/sales.json")
+df1 = pd.read_json("/Users/ilailenko/Desktop/laba1/sales.json")
 df2 = pd.DataFrame(columns=['item', 'country', 'year', 'sales'])
 
 for item in range(0, len(df1['item'].keys())):

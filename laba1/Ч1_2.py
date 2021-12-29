@@ -1,4 +1,5 @@
 from logging import root
+from matplotlib.figure import Figure
 import requests
 import numpy as np
 import xml.etree.ElementTree as ET
@@ -44,7 +45,6 @@ def draw(name, valute):
     plt.title('Курс ' + name + ' в ' + str(date_year))
     plt.ylabel('Цена за ' + name)
     plt.xlabel('Месяц')
-
     ax.xaxis.set_major_locator(matplotlib.dates.DayLocator(1))
     ax.xaxis.set_major_formatter(matplotlib.dates.DateFormatter('%m'))
 
